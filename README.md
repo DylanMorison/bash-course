@@ -18,3 +18,38 @@ Why Bash?
 - Feature-rich
 - Fast
 - Very common
+
+Each bash script starts with a hashtag and an exclamation point, better known as **shabang**. Immediately after the hashbang comes the path to the interpreter that is used to read our file.
+```bash
+#!/usr/bin/bash
+```
+
+(Exit Codes)[https://tldp.org/LDP/abs/html/exitcodes.html]:
+- 0: everything is good
+- 1: error
+
+Giving executable access
+`schmod +x our_first_script.sh`
+`./our_first_script.sh`
+
+Permissions
+<img src="./assets/permissions.PNG">
+```
+r: read
+w: write
+x: execute
+-: Cannot do any of the above
+```
+- typing `ls -l` shows the file permissions
+- file permissions are made up of 10 characters.
+  - If the first character is **d** the entry is a directory
+  - If the first character is **-** the entry is a file
+  - The next three characters (2-4) represent the permissions the file owner has for the file. 
+  - The next two groups of three (5-7 and 8-10) represent different classes of users on the system. 
+  - 5-7 represent the group permissons 
+  - 8-10 represent users not in group
+- Generally speaking only the file owner should have writing access.
+
+Type in `chmod 744 our_first_script.sh` to give users other than author *only* the ability to read the file. 
+
+[Click here](http://permissions-calculator.org/) to view permission mappings.
